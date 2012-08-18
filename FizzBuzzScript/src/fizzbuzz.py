@@ -17,8 +17,12 @@ def fizzbuzz(number):
     - if the would-be spoken number is divisible by 3 and 5 the player must say
     fizzbuzz instead
     """
+    number = int(number)
+    if number < 1:
+        raise ValueError()
+
     output = []
-    for i in range(1, int(number) + 1):
+    for i in range(1, number + 1):
         if i % 3 == 0:
             if i % 5 == 0:
                 value = 'fizzbuzz'
@@ -39,7 +43,7 @@ if __name__ == '__main__':
         script, first = argv
         fizzbuzz(first)
     except (ValueError, TypeError) as e:
-        print """This is a simple FizzBuzz application. 
+        print """This is a simple FizzBuzz application.
 Please provide a number of rounds as a first parameter of script.
 First argument must be a positive integer.
 No other arguments are accepted.
